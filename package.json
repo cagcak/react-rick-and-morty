@@ -34,6 +34,11 @@
     "codegen:schema": "npx apollo client:download-schema --endpoint=https://rickandmortyapi.com/graphql src/libs/graphql/schemas/graphql-schema.json",
     "codegen:generate": "npx apollo codegen:generate --localSchemaFile=src/libs/graphql/schemas/graphql-schema.json --target=typescript --tagName=gql --addTypename --globalTypesFile=src/libs/graphql/types/global.types.ts --outputFlat src/libs/graphql/types"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
   "lint-staged": {
     "*.{js,ts,tsx, json}": [
       "yarn lint"
@@ -64,6 +69,7 @@
     "@typescript-eslint/parser": "^4.9.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
+    "lint-staged": "10.2.11",
     "prettier": "^2.2.1",
     "redux-devtools-extension": "^2.13.8"
   }
