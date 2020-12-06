@@ -5,7 +5,7 @@
         "source.organizeImports": false
     },
     "[typescript]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": false
     },
     "prettier.prettierPath": "node_modules/prettier",
     "prettier.singleQuote": true

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.2.9",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -10,11 +11,17 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "antd": "^4.9.1",
+    "apollo-boost": "^0.4.9",
     "eslint-plugin-prettier": "^3.1.4",
+    "graphql": "^15.4.0",
     "husky": "^4.3.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "redux": "^4.0.5",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
   },
@@ -23,16 +30,13 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "codegen:schema": "npx apollo client:download-schema --endpoint=https://rickandmortyapi.com/graphql src/libs/graphql/schemas/graphql-schema.json",
+    "codegen:generate": "npx apollo codegen:generate --localSchemaFile=src/libs/graphql/schemas/graphql-schema.json --target=typescript --tagName=gql --addTypename --globalTypesFile=src/libs/graphql/types/global.types.ts --outputFlat src/libs/graphql/types"
   },
   "lint-staged": {
     "*.{js,ts,tsx, json}": [
-      "eslint --fix"
+      "yarn lint"
     ]
   },
   "eslintConfig": {
@@ -54,10 +58,13 @@
     ]
   },
   "devDependencies": {
+    "@types/react-redux": "^7.1.11",
+    "@types/redux": "^3.6.0",
     "@typescript-eslint/eslint-plugin": "^4.9.0",
     "@typescript-eslint/parser": "^4.9.0",
     "eslint": "^7.14.0",
     "eslint-config-prettier": "^6.15.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "redux-devtools-extension": "^2.13.8"
   }
 }
