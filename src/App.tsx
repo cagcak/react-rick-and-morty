@@ -2,14 +2,14 @@ import './App.css';
 
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { setAllCharacters } from './libs/redux/states/characters';
-import { StoreModel } from './libs/redux/models';
+import { setAllCharacters } from './libs/redux/states';
+import { RootState } from './libs/redux/models';
 
 function App() {
   return <div className="App"></div>;
 }
 
-const mapStateToProps = ({ character, characters }: StoreModel) => {
+const mapStateToProps = ({ character, characters }: RootState) => {
   return {
     character,
     characters,

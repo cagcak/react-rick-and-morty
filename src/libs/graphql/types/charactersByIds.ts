@@ -12,7 +12,7 @@ export interface charactersByIds_charactersByIds_location {
   /**
    * The name of the location.
    */
-  name: string | null;
+  name: string;
 }
 
 export interface charactersByIds_charactersByIds_episode {
@@ -20,15 +20,15 @@ export interface charactersByIds_charactersByIds_episode {
   /**
    * The name of the episode.
    */
-  name: string | null;
+  name: string;
   /**
    * The code of the episode.
    */
-  episode: string | null;
+  episode: string;
   /**
    * The air date of the episode.
    */
-  air_date: string | null;
+  air_date: string;
 }
 
 export interface charactersByIds_charactersByIds {
@@ -36,27 +36,27 @@ export interface charactersByIds_charactersByIds {
   /**
    * The name of the character.
    */
-  name: string | null;
+  name: string;
   /**
    * Link to the character's image.
    * All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
    */
-  image: string | null;
+  image: string;
   /**
    * The character's last known location
    */
-  location: charactersByIds_charactersByIds_location | null;
+  location: charactersByIds_charactersByIds_location;
   /**
    * Episodes in which this character appeared.
    */
-  episode: (charactersByIds_charactersByIds_episode | null)[] | null;
+  episode: (charactersByIds_charactersByIds_episode)[];
 }
 
 export interface charactersByIds {
   /**
    * Get a list of characters selected by ids
    */
-  charactersByIds: (charactersByIds_charactersByIds | null)[] | null;
+  charactersByIds: (charactersByIds_charactersByIds)[];
 }
 
 export interface charactersByIdsVariables {

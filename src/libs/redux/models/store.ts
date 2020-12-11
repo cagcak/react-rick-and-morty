@@ -1,21 +1,28 @@
-import { charactersByIds_charactersByIds, Characters_characters } from '../../graphql/types';
+import { charactersByIds, Characters_characters } from '../../graphql/types';
 
-export const INITIAL_STATE: StoreModel = {
+export const INITIAL_STATE: RootState = {
   character: {
-    __typename: 'Character',
-    episode: null,
-    image: null,
-    location: null,
-    name: null,
+    charactersByIds: [],
   },
   characters: {
     __typename: 'Characters',
-    info: null,
-    results: null,
+    info: {
+      __typename: 'Info',
+      count: 0,
+      next: 1,
+      pages: 0,
+      prev: 0,
+    },
+    results: [],
   },
 };
 
-export interface StoreModel {
-  character: charactersByIds_charactersByIds;
+export interface RootState {
+  character: charactersByIds;
   characters: Characters_characters;
 }
+
+export type RootStateContext = {
+  characterReducer: RootState;
+  charactersReducer: RootState;
+};

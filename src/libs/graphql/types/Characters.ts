@@ -12,19 +12,19 @@ export interface Characters_characters_info {
   /**
    * The length of the response.
    */
-  count: number | null;
+  count: number;
   /**
    * The amount of pages.
    */
-  pages: number | null;
+  pages: number;
   /**
    * Number of the next page (if it exists)
    */
-  next: number | null;
+  next: number;
   /**
    * Number of the previous page (if it exists)
    */
-  prev: number | null;
+  prev: number;
 }
 
 export interface Characters_characters_results {
@@ -32,27 +32,27 @@ export interface Characters_characters_results {
   /**
    * The name of the character.
    */
-  name: string | null;
+  name: string;
   /**
    * Link to the character's image.
    * All images are 300x300px and most are medium shots or portraits since they are intended to be used as avatars.
    */
-  image: string | null;
+  image: string;
 }
 
 export interface Characters_characters {
   __typename: "Characters";
-  info: Characters_characters_info | null;
-  results: (Characters_characters_results | null)[] | null;
+  info: Characters_characters_info;
+  results: Characters_characters_results[];
 }
 
 export interface Characters {
   /**
    * Get the list of all characters
    */
-  characters: Characters_characters | null;
+  characters: Characters_characters;
 }
 
 export interface CharactersVariables {
-  page?: number | null;
+  page?: number;
 }

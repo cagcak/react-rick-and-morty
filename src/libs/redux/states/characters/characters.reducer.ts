@@ -1,13 +1,23 @@
-import { INITIAL_STATE, StoreModel } from '../../models';
-import { ALL_CHARACTERS } from './characters.types';
+import { INITIAL_STATE, RootState } from '../../models';
+import { AllCharacterTypes, ALL_CHARACTERS } from './characters.types';
 
-export const charactersReducer = (state = INITIAL_STATE, action) => {
+const initialState: RootState = INITIAL_STATE;
+
+export const charactersReducer = (state = initialState, action: AllCharacterTypes): RootState => {
   switch (action.type) {
     case ALL_CHARACTERS:
-      return {
-        ...state,
-        characters: action.payload.characters,
-      } as StoreModel;
+      return state.characters.info.next === action.payload.info.next
+        ? state
+        : ({
+            ...state,
+            characters: {
+              ...action.payload,
+              results: [
+                ...((state.characters.results.length && [...state.characters.results]) || []),
+                ...action.payload.results,
+              ],
+            },
+          } as RootState);
 
     default:
       return state;
